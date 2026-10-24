@@ -1,88 +1,103 @@
-:root { --text: #f4f5f0; --muted: #b5c0bd; --accent: #c1dcc4; }
+@font-face { font-family: Inter; src: url("../fonts/InterVariable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+:root { --ground: #101112; --surface: #202122; --raised: #303132; --text: #f5f5f3; --muted: #bfc0c0; --focus: #fafaf8; --edge: 88px; }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
-body { background: #101c20; color: var(--text); font-family: "Helvetica Neue", Arial, sans-serif; font-size: 22px; }
-button { font: inherit; color: inherit; cursor: pointer; border: 0; }
-button:focus { outline: 4px solid var(--accent); outline-offset: 7px; transform: scale(1.035); }
-button { transition: transform 140ms ease, opacity 140ms ease; }
-.wallpaper { position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: #101c20 url("../images/wallpaper.svg") center center / cover no-repeat; }
-.wallpaper::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(180deg, rgba(7, 16, 20, .16) 0%, rgba(7, 16, 20, .12) 30%, rgba(7, 16, 20, .86) 68%, #091215 100%); }
-.home { position: relative; height: 100%; padding: 50px 80px 34px; display: flex; flex-direction: column; }
-.topbar { display: flex; align-items: center; justify-content: space-between; min-height: 62px; }
-.brand { font-size: 29px; font-weight: 600; letter-spacing: -.7px; display: flex; align-items: center; }
-.home-mark { font-family: Arial, sans-serif; font-size: 45px; font-weight: 400; margin-right: 16px; line-height: 1; color: var(--accent); }
+body { background: var(--ground); color: var(--text); font: 22px/1.5 Inter, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--text); color: var(--ground); }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+button:focus { outline: 4px solid var(--focus); outline-offset: 6px; }
+button:active { transform: scale(.98); }
+button:disabled { opacity: .4; cursor: default; }
+svg { display: block; }
+.wallpaper { position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: #28332f url("../images/lago-di-braies.jpg") center 47% / cover no-repeat; }
+.wallpaper::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(90deg, rgba(9,10,11,.62), rgba(9,10,11,.12) 70%), linear-gradient(180deg, rgba(9,10,11,.28), rgba(9,10,11,.05) 34%, rgba(9,10,11,.78) 64%, #101112 86%); } /* Neutral photographic readability scrim; taste-skill-ignore */
+.home { position: relative; height: 100%; padding: 48px var(--edge) 28px; display: flex; flex-direction: column; }
+.topbar { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
+.brand { display: flex; align-items: center; }
+.brand h1 { font-size: 27px; letter-spacing: -.6px; font-weight: 550; margin: 0; }
+.home-mark { width: 31px; height: 31px; margin-right: 14px; stroke: currentColor; stroke-width: 1.7; fill: none; stroke-linejoin: round; }
 .topbar-actions { display: flex; align-items: center; }
-.environment { font-size: 15px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-right: 36px; }
-.settings-button { background: rgba(20, 35, 39, .7); border: 1px solid rgba(229, 241, 232, .18); border-radius: 30px; padding: 16px 25px; display: flex; align-items: center; font-size: 20px; }
-.settings-button svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.6; margin-right: 12px; }
-.at-a-glance { display: flex; justify-content: space-between; align-items: center; padding-top: 76px; }
-.eyebrow { font-size: 17px; letter-spacing: 2px; margin: 0 0 10px; color: var(--muted); }
-.clock { display: flex; align-items: baseline; line-height: 1.1; }
-.clock time { font-size: 148px; font-weight: 300; letter-spacing: -8px; font-variant-numeric: tabular-nums; }
-.period { margin-left: 19px; font-size: 30px; font-weight: 300; color: #d5ddd7; }
-.date { font-size: 27px; font-weight: 300; margin: 15px 0 0; letter-spacing: .2px; }
-.weather { display: flex; align-items: center; margin-top: 10px; max-width: 400px; }
-.weather svg { width: 68px; height: 68px; margin-right: 22px; fill: none; stroke: #d3e4d9; stroke-width: 2; stroke-linecap: round; }
-.weather .cloud { fill: #283c40; }
-.weather-label { font-size: 23px; margin: 0 0 10px; }
-.weather-status { font-size: 18px; color: var(--muted); margin: 0; }
+.environment { font-size: 17px; margin-right: 28px; color: #e1e2e1; }
+.settings-button { background: rgba(23,24,25,.8); border-radius: 50px; padding: 16px 22px; display: flex; align-items: center; font-size: 19px; font-weight: 500; }
+.settings-button svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.6; margin-right: 11px; }
+.at-a-glance { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 80px; }
+.clock { display: flex; align-items: baseline; line-height: 1; }
+.clock time { font-size: 184px; font-weight: 300; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.period { margin-left: 18px; font-size: 24px; font-weight: 400; color: #e2e3e2; }
+.date { font-size: 27px; margin: 22px 0 0; font-weight: 400; letter-spacing: -.5px; }
+.weather { display: flex; align-items: center; padding-bottom: 8px; max-width: 365px; }
+.weather svg { flex-shrink: 0; width: 48px; height: 48px; margin-right: 17px; fill: none; stroke: #edecea; stroke-width: 1.7; stroke-linecap: round; }
+.weather .cloud { fill: #333a37; }
+.weather-label { font-size: 22px; font-weight: 500; margin: 0 0 4px; }
+.weather-status { font-size: 17px; color: #e1e2e0; margin: 0; max-width: 270px; }
 .launchers { margin-top: auto; }
-.section-heading { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; }
-.section-heading h1, .section-heading h2 { font-size: 27px; letter-spacing: -.4px; margin: 0; font-weight: 500; }
-.section-heading > span { font-size: 17px; color: var(--muted); }
-.app-row { display: flex; margin: -16px; padding: 16px; overflow-x: auto; scrollbar-width: none; }
+.section-heading { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 18px; }
+.section-heading h2 { font-size: 23px; letter-spacing: -.4px; margin: 0; font-weight: 550; }
+.section-heading > span { font-size: 16px; color: var(--muted); }
+.app-row { display: flex; margin: -16px; padding: 16px; overflow-x: auto; }
 .app-row::-webkit-scrollbar { display: none; }
-.app-tile { flex: 0 0 calc((100% - 140px) / 6); min-width: 0; height: 136px; margin-right: 28px; border-radius: 12px; background: #1d3036; display: flex; justify-content: center; align-items: center; position: relative; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+.app-tile { flex: 0 0 calc((100% - 120px) / 6); min-width: 0; margin-right: 24px; border-radius: 16px; background: transparent; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .app-tile:last-child { margin-right: 0; }
-.app-name { font-size: 30px; font-weight: 600; letter-spacing: -.8px; }
-.app-icon { width: 66px; height: 66px; object-fit: contain; margin-right: 14px; }
-.app-tile.has-icon .app-name { font-size: 22px; max-width: 150px; overflow-wrap: break-word; }
-.app-tile.netflix { background: #1c1519; color: #f13848; }
-.netflix .app-name { text-transform: uppercase; font-size: 32px; letter-spacing: 1px; }
-.app-tile.youtube { background: #f3f2ef; color: #17191c; }
-.youtube .app-name { font-size: 29px; }
-.youtube .play-icon { width: 44px; height: 31px; background: #e62c31; border-radius: 9px; margin-right: 10px; position: relative; }
-.youtube .play-icon::after { content: ""; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid white; position: absolute; top: 8px; left: 18px; }
-.app-tile.prime-video { background: #18314a; color: #73c5ee; }
-.prime-video .app-name { font-size: 30px; font-weight: 500; }
-.app-tile.disney { background: #18233e; }
-.disney .app-name { font-family: Georgia, serif; font-size: 37px; font-style: italic; font-weight: 400; }
-.app-tile.plex { background: #202225; color: #f1bd55; }
-.plex .app-name { font-size: 45px; letter-spacing: -2px; }
-.app-tile.spotify { background: #142b24; color: #7ddd9e; }
-.spotify .app-name { font-size: 31px; }
-.apps-status { color: var(--muted); font-size: 20px; min-height: 100px; }
-.web-section { margin-top: 35px; }
+.app-art { display: flex; align-items: center; justify-content: center; width: 100%; height: 122px; border-radius: 16px; background: var(--surface); }
+.app-tile:focus { outline: none; transform: none; }
+.app-tile:focus .app-art { outline: 4px solid var(--focus); outline-offset: 5px; transform: scale(1.025); background: #f5f5f3; color: #101112; }
+.app-tile:active .app-art { transform: scale(.99); }
+.app-name { margin-top: 16px; color: var(--muted); font-size: 20px; font-weight: 450; line-height: 1.3; letter-spacing: -.3px; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-tile:focus .app-name { color: var(--text); font-weight: 600; }
+.app-logo { width: 50px; height: 50px; flex-shrink: 0; }
+.logo-word { font-size: 30px; font-weight: 600; letter-spacing: -.9px; max-width: 90%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.netflix .app-art { color: #f03b43; }
+.youtube .app-art { color: #ee444b; }
+.prime-video .app-art, .disney .app-art { color: #e3e9ef; }
+.plex .app-art { color: #efb353; }
+.spotify .app-art { color: #7ddba3; }
+.netflix:focus .app-art, .youtube:focus .app-art { color: #df1f2d; }
+.prime-video .logo-word { font-size: 27px; font-weight: 550; }
+.disney .logo-word { font-size: 31px; font-weight: 500; }
+.plex .logo-word { font-size: 40px; font-weight: 650; letter-spacing: -1.3px; }
+.app-icon { width: 66px; height: 66px; object-fit: contain; border-radius: 12px; }
+.apps-status { color: var(--muted); font-size: 20px; min-height: 160px; padding: 25px 0; }
+.web-section { margin-top: 28px; }
 .website-row { display: flex; }
-.website-tile { display: flex; align-items: center; text-align: left; background: rgba(177, 206, 195, .065); border: 1px solid rgba(207, 228, 217, .1); border-radius: 10px; height: 100px; flex: 1; margin-right: 24px; padding: 0 25px; }
+.website-tile { display: flex; align-items: center; text-align: left; background: #202122; border-radius: 12px; height: 82px; min-width: 0; flex: 1; margin-right: 24px; padding: 0 23px; }
 .website-tile:last-child { margin-right: 0; }
-.website-symbol { width: 45px; text-align: center; margin-right: 22px; color: #d4e2d9; font-size: 23px; }
-.website-symbol.serif { font-family: Georgia, serif; font-size: 37px; }
-.website-symbol.bbc { font-size: 18px; letter-spacing: 1px; border: 1px solid #83958b; padding: 7px 2px; }
-.website-tile strong { font-size: 22px; font-weight: 500; display: block; margin-bottom: 7px; }
-.website-tile small { font-size: 16px; color: var(--muted); }
-.external-mark { margin-left: auto; padding-left: 20px; font-size: 25px; color: #90a29a; }
-.footer { display: flex; justify-content: space-between; align-items: center; padding-top: 51px; }
+.website-symbol { flex-shrink: 0; width: 34px; margin-right: 18px; text-align: center; font-size: 23px; color: #d7d8d6; }
+.website-symbol.serif { font-family: Georgia, serif; font-size: 30px; }
+.website-symbol.bbc { font-size: 15px; font-weight: 650; letter-spacing: -.5px; }
+.website-tile strong { font-size: 20px; font-weight: 500; display: block; line-height: 1.4; margin-bottom: 2px; }
+.website-tile small { font-size: 15px; color: var(--muted); display: block; }
+.external-mark { margin-left: auto; padding-left: 16px; width: 38px; height: 22px; fill: none; stroke: var(--muted); stroke-width: 1.6; }
+.youtube-symbol { height: 30px; fill: #d7d8d6; }
+.youtube-symbol path { fill: var(--surface); }
+.footer { display: flex; justify-content: space-between; align-items: center; padding-top: 31px; }
 .remote-guide { display: flex; align-items: center; font-size: 16px; color: var(--muted); }
-.remote-guide > span { margin-right: 33px; display: flex; align-items: center; }
-kbd { font: inherit; color: #e3ebe4; margin-right: 9px; }
-.remote-guide small { font-size: 13px; margin-left: 7px; color: #91a29b; }
-.red-key { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #d57b76; margin-right: 10px; }
-.version { color: #9aaca3; font-size: 16px; letter-spacing: 1px; }
-.version span { color: #4f655b; margin: 0 10px; }
-.overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 2; background: rgba(3, 10, 13, .72); display: flex; justify-content: flex-end; }
-.settings-panel { background: #142126; border-left: 1px solid #34443f; width: 680px; height: 100%; padding: 85px 65px; overflow-y: auto; }
-.settings-panel h2 { font-size: 43px; font-weight: 400; letter-spacing: -1px; line-height: 1.15; margin: 30px 0 20px; }
-.panel-description { color: var(--accent); font-size: 20px; margin-bottom: 45px; }
-.settings-detail { margin-bottom: 29px; }
-.settings-detail h3 { font-size: 21px; font-weight: 500; margin: 0 0 12px; }
-.settings-detail p { color: var(--muted); font-size: 20px; line-height: 1.5; margin: 0; }
-.panel-action { margin-top: 25px; }
-.action-button { width: 100%; border-radius: 7px; padding: 23px 24px; text-align: left; background: var(--accent); color: #14251b; font-size: 22px; }
-.action-button span { float: right; }
-.action-button.secondary { background: #233238; color: var(--text); }
-.panel-hint { margin-top: 35px; color: var(--muted); font-size: 17px; }
-.toast { position: fixed; bottom: 108px; left: 50%; transform: translateX(-50%); max-width: 80%; padding: 21px 35px; border: 1px solid #879d8e; border-radius: 10px; background: #21352d; color: #f4faf5; font-size: 23px; text-align: center; z-index: 3; }
-@media (max-height: 850px) { .home { padding: 30px 50px; } .at-a-glance { padding-top: 20px; } .clock time { font-size: 105px; } .app-tile { height: 105px; } .web-section { margin-top: 22px; } .footer { padding-top: 28px; } .settings-panel { padding: 35px 55px; } }
-@media (prefers-reduced-motion: reduce) { button { transition: none; } }
+.remote-guide > span { margin-right: 30px; display: flex; align-items: center; }
+kbd { font: 500 13px/1 Inter, Arial, sans-serif; color: #e4e5e3; border: 1px solid #5d5f5f; border-radius: 5px; padding: 5px 6px; margin-right: 9px; }
+.remote-guide small { font-size: 13px; margin-left: 9px; }
+.red-key { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #d57b76; margin-right: 10px; }
+.scene-credit { color: var(--muted); font-size: 14px; }
+.overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 2; background: rgba(7,8,9,.72); display: flex; justify-content: flex-end; }
+.settings-panel { background: #161718; width: 650px; height: 100%; padding: 70px 56px 48px; overflow-y: auto; }
+.panel-heading { display: flex; justify-content: space-between; align-items: center; }
+.panel-heading h2 { font-size: 42px; font-weight: 500; letter-spacing: -1.2px; margin: 0; line-height: 1.2; }
+.panel-key { color: var(--muted); font-size: 14px; }
+.panel-description { color: var(--muted); font-size: 20px; margin: 18px 0 48px; letter-spacing: -.4px; }
+.settings-detail { margin-bottom: 28px; }
+.settings-detail h3, .wallpaper-credit h3 { font-size: 21px; font-weight: 550; margin: 0 0 12px; letter-spacing: -.4px; }
+.settings-detail p { color: var(--muted); font-size: 19px; line-height: 1.6; margin: 0; max-width: 45ch; }
+.panel-action { margin-top: 24px; }
+.action-button { width: 100%; border-radius: 12px; padding: 22px 24px; text-align: left; background: #f5f5f3; color: #171819; font-size: 20px; font-weight: 500; }
+.action-icon { float: right; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linejoin: round; }
+.action-button.secondary { background: #2a2b2c; color: var(--text); }
+.wallpaper-credit { margin-top: 40px; }
+.wallpaper-credit p { font-size: 19px; margin: 0 0 6px; }
+.wallpaper-credit small { font-size: 15px; color: var(--muted); }
+.panel-hint { margin-top: 30px; color: var(--muted); font-size: 15px; }
+.toast { position: fixed; bottom: 105px; left: 50%; transform: translateX(-50%); max-width: 80%; padding: 18px 28px; border-radius: 12px; background: #f5f5f3; color: #171819; font-size: 20px; text-align: center; z-index: 3; box-shadow: 0 8px 28px rgba(0,0,0,.22); }
+@media (hover: hover) and (pointer: fine) { .settings-button:hover, .website-tile:hover, .action-button.secondary:hover { background: #353637; } .app-tile:hover:not(:focus) .app-art { background: #343536; } }
+@media (max-width: 1500px), (max-height: 850px) { :root { --edge: 54px; } .home { padding-top: 30px; padding-bottom: 24px; } .at-a-glance { padding-top: 42px; } .clock time { font-size: 140px; } .date { font-size: 23px; margin-top: 16px; } .app-art { height: 102px; } .app-name { font-size: 17px; margin-top: 14px; } .section-heading h2 { font-size: 21px; } .section-heading { margin-bottom: 14px; } .web-section { margin-top: 23px; } .website-tile { height: 72px; } .footer { padding-top: 24px; } .settings-panel { padding: 40px 48px 32px; width: 580px; } .panel-description { margin-bottom: 30px; } .logo-word, .prime-video .logo-word { font-size: 23px; } }
+@media (max-width: 1050px) { :root { --edge: 32px; } .environment, .scene-credit, .remote-guide small { display: none; } .weather { max-width: 260px; } .weather-status { font-size: 15px; } .clock time { font-size: 120px; } .app-tile { flex-basis: calc((100% - 80px) / 6); margin-right: 16px; } .website-tile { margin-right: 16px; padding: 0 16px; } .website-tile strong { font-size: 17px; } .website-symbol { margin-right: 12px; width: 28px; } .external-mark { display: none; } .app-logo { width: 40px; height: 40px; } .disney .logo-word { font-size: 24px; } .plex .logo-word { font-size: 32px; } .logo-word, .prime-video .logo-word { font-size: 19px; } .section-heading > span { font-size: 13px; } }
+@media (max-height: 760px) and (min-width: 651px) { .at-a-glance { padding-top: 24px; } .clock time { font-size: 112px; } .date { font-size: 21px; margin-top: 12px; } .app-art { height: 90px; } .settings-panel { padding-top: 30px; } .settings-detail { margin-bottom: 20px; } .panel-description { margin-bottom: 24px; } .wallpaper-credit { margin-top: 26px; } }
+@media (max-width: 650px) { html { height: auto; min-height: 100%; overflow-y: auto; } body { height: auto; min-height: 100vh; overflow: visible; } .home { height: auto; min-height: 100vh; } .topbar-actions { margin-left: 12px; } .brand h1 { font-size: 21px; } .home-mark { width: 24px; margin-right: 9px; } .settings-button { padding: 12px 14px; font-size: 15px; } .settings-button svg { width: 18px; height: 18px; margin-right: 7px; } .at-a-glance { display: block; padding-top: 50px; } .clock time { font-size: 110px; } .period { font-size: 18px; margin-left: 10px; } .date { font-size: 20px; } .weather { margin-top: 24px; max-width: none; } .weather svg { width: 32px; height: 32px; } .weather-label { font-size: 18px; } .weather-status { max-width: none; } .launchers { margin-top: 62px; } .app-tile { flex-basis: calc((100% - 32px) / 3); } .app-art { height: 86px; } .app-name { font-size: 14px; } .section-heading > span { max-width: 140px; text-align: right; } .website-row { display: block; } .website-tile { width: 100%; margin: 0 0 12px; } .footer { padding-top: 28px; } .remote-guide { font-size: 12px; flex-wrap: wrap; } .remote-guide > span { margin: 0 15px 16px 0; } .settings-panel { width: 100%; padding: 40px 32px; } .panel-heading h2 { font-size: 34px; } .panel-description { font-size: 17px; } .settings-detail p { font-size: 17px; } }
+@media (prefers-reduced-motion: reduce) { button:active, .app-tile:focus .app-art, .app-tile:active .app-art { transform: none; } }

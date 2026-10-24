@@ -2,7 +2,7 @@
   'use strict';
   window.TVHome.weather = {
     init: function () {
-      document.getElementById('weather-status').textContent = 'Weather setup comes in Step 2';
+      document.getElementById('weather-status').textContent = 'Not available in this preview';
     }
   };
 }());

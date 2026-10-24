@@ -4,7 +4,7 @@ A remote-controlled home-screen app targeting the Samsung Q60A (2021), Tizen 6.0
 
 ## Current milestone: Step 1
 
-- Full-screen home layout designed for 1920×1080, with local landscape artwork and a live clock/date.
+- Full-screen home layout designed for 1920×1080, with a local scenic photograph, self-hosted Inter font, and a live clock/date.
 - Arrow navigation between the settings button, apps, and website shortcuts; strong focus ring and scale.
 - Settings shell with focus containment and restoration on close.
 - Desktop mock app list and simulated launches/exit. No real streaming service opens on desktop.
@@ -81,4 +81,18 @@ TODO / not supported in v1: HDMI/input switching and Samsung Home-button replace
 - [Samsung Application API](https://developer.samsung.com/smarttv/develop/api-references/tizen-web-device-api-references/application-api.html)
 - [Samsung web engine specifications](https://developer.samsung.com/smarttv/develop/specifications/web-engine-specifications.html)
 
-The local wallpaper is original vector artwork. App names identify third-party services; mock tiles do not imply those services are installed on the TV.
+## Cinematic UI refresh
+
+The user-selected cinematic direction uses a 184px clock, quiet charcoal app artwork, separate app labels, a white focus treatment, and a matching settings panel. Navigation has no transition delay. Smaller desktop previews adapt at 1500px/1050px and short viewport heights; narrow previews scroll vertically.
+
+Design references: Emil Kowalski's interaction guidance, Impeccable's Operate guidance, and Taste Skill's True-black flat app style (seed 2039978867). TV viewing distance overrides dashboard-sized type; a neutral photo scrim is used for readability. The app keeps its original Step 1 feature scope.
+
+Verified with Playwright MCP at 1920×1080 and 1280×720, plus a narrow preview at 390px. Eighteen focus checks and four activation/feedback checks passed. A nine-app device stub also verified long accessible names, failed-icon fallback, row scrolling, and launches using discovered IDs. These are desktop checks; actual Samsung hardware remains untested. Design screenshots and detector output are local under `output/design/`.
+
+Taste source lint: zero failures; its floating-toast shadow warning is intentional. The render inspector's centered-logo whitespace warning is intentional for couch-distance app recognition. Impeccable's font/hierarchy warnings were reviewed: Inter is the dealt working-screen face, and the hierarchy detector omits the large semantic clock. Review was performed locally because delegation was disabled for this turn.
+
+## Asset credits
+
+- Wallpaper: [Lago di Braies photograph by Luca Bravo](https://unsplash.com/photos/boathouse-on-lago-di-braies-hFzIoD0F_i8), downloaded from [Unsplash's image CDN](https://images.unsplash.com/photo-1482192505345-5655af888cc4). Used under the [Unsplash License](https://unsplash.com/license). Bundled as `images/lago-di-braies.jpg`; photographer credit is also visible in settings. This is a photograph of Italy, not live weather or a claim about the user's location.
+- Typeface: [Inter by Rasmus Andersson and contributors](https://github.com/rsms/inter), bundled as `fonts/InterVariable.woff2`; SIL Open Font License included in `fonts/OFL.txt`.
+- Interface icons and app pictograms are local SVG. App names identify third-party services; mock tiles do not imply those services are installed on the TV.

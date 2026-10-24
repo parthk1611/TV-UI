@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=1920">
-  <meta name="theme-color" content="#101c20">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101112">
   <title>TV Home</title>
   <link rel="icon" href="images/icon.png">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
   <div class="wallpaper" aria-hidden="true"></div>
   <main id="home" class="home">
     <header class="topbar" data-nav-row>
-      <div class="brand"><span class="home-mark" aria-hidden="true">⌂</span> TV Home</div>
+      <div class="brand"><svg class="home-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="m5 15 11-10 11 10v12h-8v-8h-6v8H5Z"/></svg><h1>TV Home</h1></div>
       <div class="topbar-actions">
         <span id="environment" class="environment">Starting…</span>
         <button id="open-settings" class="settings-button" data-focusable aria-label="Open settings">
@@ -24,55 +25,55 @@
 
     <section class="at-a-glance" aria-label="Clock and weather">
       <div class="clock-block">
-        <p class="eyebrow">Make yourself at home</p>
+
         <div class="clock"><time id="clock">--:--</time><span id="period" class="period"></span></div>
         <p id="date" class="date"></p>
       </div>
       <div class="weather">
         <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="25" cy="24" r="10"/><path d="M25 4v5M25 39v5M5 24h5M40 24h5M11 10l4 4M35 34l4 4M11 38l4-4M35 14l4-4"/><path class="cloud" d="M25 49h25a9 9 0 0 0 0-18 13 13 0 0 0-25 3 7.5 7.5 0 0 0 0 15Z"/></svg>
-        <div><p class="weather-label">Your local weather</p><p id="weather-status" class="weather-status"></p></div>
+        <div><p class="weather-label">Weather</p><p id="weather-status" class="weather-status"></p></div>
       </div>
     </section>
 
     <div class="launchers">
       <section class="apps-section" aria-labelledby="apps-heading">
-        <div class="section-heading"><h1 id="apps-heading">Your apps</h1><span id="apps-caption">Loading apps…</span></div>
+        <div class="section-heading"><h2 id="apps-heading">Your apps</h2><span id="apps-caption">Loading apps…</span></div>
         <div id="apps" class="app-row" data-nav-row aria-label="Applications"></div>
         <p id="apps-status" class="apps-status" role="status" hidden></p>
       </section>
       <section class="web-section" aria-labelledby="web-heading">
         <div class="section-heading"><h2 id="web-heading">On the web</h2><span>Shortcut preview</span></div>
         <div id="websites" class="website-row" data-nav-row>
-          <button class="website-tile" data-focusable data-website="YouTube"><span class="website-symbol" aria-hidden="true">▶</span><span><strong>YouTube</strong><small>youtube.com</small></span><span class="external-mark" aria-hidden="true">↗</span></button>
-          <button class="website-tile" data-focusable data-website="Wikipedia"><span class="website-symbol serif" aria-hidden="true">W</span><span><strong>Wikipedia</strong><small>wikipedia.org</small></span><span class="external-mark" aria-hidden="true">↗</span></button>
-          <button class="website-tile" data-focusable data-website="BBC"><span class="website-symbol bbc" aria-hidden="true">BBC</span><span><strong>BBC News</strong><small>bbc.com</small></span><span class="external-mark" aria-hidden="true">↗</span></button>
+          <button class="website-tile" data-focusable data-website="YouTube"><svg class="website-symbol youtube-symbol" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="7" width="26" height="18" rx="5"/><path d="m13 11 8 5-8 5Z"/></svg><span><strong>YouTube</strong><small>youtube.com</small></span><svg class="external-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
+          <button class="website-tile" data-focusable data-website="Wikipedia"><span class="website-symbol serif" aria-hidden="true">W</span><span><strong>Wikipedia</strong><small>wikipedia.org</small></span><svg class="external-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
+          <button class="website-tile" data-focusable data-website="BBC"><span class="website-symbol bbc" aria-hidden="true">BBC</span><span><strong>BBC News</strong><small>bbc.com</small></span><svg class="external-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
         </div>
       </section>
     </div>
 
     <footer class="footer">
       <div class="remote-guide"><span><kbd>↑ ↓ ← →</kbd> Move</span><span><kbd>OK</kbd> Open</span><span><kbd>Back</kbd> Return / exit</span><span><i class="red-key" aria-hidden="true"></i> Settings <small>(R on desktop)</small></span></div>
-      <span class="version">TV Home <span> / </span> 01</span>
+      <span class="scene-credit">Lago di Braies, Italy</span>
     </footer>
   </main>
 
   <section id="settings" class="overlay" role="dialog" aria-modal="true" aria-labelledby="settings-title" hidden>
     <div class="settings-panel">
-      <p class="eyebrow">TV HOME / SETTINGS</p>
-      <h2 id="settings-title">Your home, set up your way.</h2>
-      <p class="panel-description">Step 1 · Remote navigation preview</p>
-      <div class="settings-detail"><h3>Ready to try</h3><p>Move between apps, website tiles, and this panel using only the arrow keys and OK.</p></div>
-      <div class="settings-detail"><h3>Coming in the next steps</h3><p>Wallpaper, local weather, tile editing, saved preferences, and the idle clock.</p></div>
-      <div class="panel-action" data-nav-row><button id="test-remote" class="action-button" data-focusable>Test OK button <span aria-hidden="true">↵</span></button></div>
-      <div class="panel-action" data-nav-row><button id="close-settings" class="action-button secondary" data-focusable>Back to home <span aria-hidden="true">←</span></button></div>
+      <div class="panel-heading"><h2 id="settings-title">Settings</h2><span class="panel-key">Back to close</span></div>
+      <p class="panel-description">A little more you. A little less menu.</p>
+      <div class="settings-detail"><h3>Try your remote</h3><p>Move between apps, website tiles, and this panel using only the arrow keys and OK.</p></div>
+      <div class="settings-detail"><h3>Still in preview</h3><p>Wallpaper choices, local weather, tile editing, saved preferences, and the idle clock arrive in the next steps.</p></div>
+      <div class="panel-action" data-nav-row><button id="test-remote" class="action-button" data-focusable>Test OK button <svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v10H5m5-5-5 5 5 5"/></svg></button></div>
+      <div class="panel-action" data-nav-row><button id="close-settings" class="action-button secondary" data-focusable>Back to home <svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button></div>
+      <div class="wallpaper-credit"><h3>On your screen</h3><p>Lago di Braies, Italy</p><small>Photography by Luca Bravo · Unsplash</small></div>
       <p class="panel-hint">Press Back to return to your previous tile.</p>
     </div>
   </section>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
   <script src="js/nav.js"></script>
-  <script src="js/apps.js"></script>
-  <script src="js/weather.js"></script>
+  <script src="js/apps.js?v=2"></script>
+  <script src="js/weather.js?v=2"></script>
   <script src="js/settings.js"></script>
   <script src="js/keys.js"></script>
   <script src="js/main.js"></script>

@@ -2,6 +2,7 @@
 .sign/
 output/
 .playwright-cli/
+.playwright-mcp/
 *.wgt
 *.p12
 *.pfx

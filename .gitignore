@@ -1,0 +1,10 @@
+.buildResult/
+.sign/
+output/
+.playwright-cli/
+*.wgt
+*.p12
+*.pfx
+*.pem
+*.key
+.DS_Store

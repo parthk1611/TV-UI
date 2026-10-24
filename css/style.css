@@ -1,0 +1,88 @@
+:root { --text: #f4f5f0; --muted: #b5c0bd; --accent: #c1dcc4; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { background: #101c20; color: var(--text); font-family: "Helvetica Neue", Arial, sans-serif; font-size: 22px; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; }
+button:focus { outline: 4px solid var(--accent); outline-offset: 7px; transform: scale(1.035); }
+button { transition: transform 140ms ease, opacity 140ms ease; }
+.wallpaper { position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: #101c20 url("../images/wallpaper.svg") center center / cover no-repeat; }
+.wallpaper::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(180deg, rgba(7, 16, 20, .16) 0%, rgba(7, 16, 20, .12) 30%, rgba(7, 16, 20, .86) 68%, #091215 100%); }
+.home { position: relative; height: 100%; padding: 50px 80px 34px; display: flex; flex-direction: column; }
+.topbar { display: flex; align-items: center; justify-content: space-between; min-height: 62px; }
+.brand { font-size: 29px; font-weight: 600; letter-spacing: -.7px; display: flex; align-items: center; }
+.home-mark { font-family: Arial, sans-serif; font-size: 45px; font-weight: 400; margin-right: 16px; line-height: 1; color: var(--accent); }
+.topbar-actions { display: flex; align-items: center; }
+.environment { font-size: 15px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-right: 36px; }
+.settings-button { background: rgba(20, 35, 39, .7); border: 1px solid rgba(229, 241, 232, .18); border-radius: 30px; padding: 16px 25px; display: flex; align-items: center; font-size: 20px; }
+.settings-button svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.6; margin-right: 12px; }
+.at-a-glance { display: flex; justify-content: space-between; align-items: center; padding-top: 76px; }
+.eyebrow { font-size: 17px; letter-spacing: 2px; margin: 0 0 10px; color: var(--muted); }
+.clock { display: flex; align-items: baseline; line-height: 1.1; }
+.clock time { font-size: 148px; font-weight: 300; letter-spacing: -8px; font-variant-numeric: tabular-nums; }
+.period { margin-left: 19px; font-size: 30px; font-weight: 300; color: #d5ddd7; }
+.date { font-size: 27px; font-weight: 300; margin: 15px 0 0; letter-spacing: .2px; }
+.weather { display: flex; align-items: center; margin-top: 10px; max-width: 400px; }
+.weather svg { width: 68px; height: 68px; margin-right: 22px; fill: none; stroke: #d3e4d9; stroke-width: 2; stroke-linecap: round; }
+.weather .cloud { fill: #283c40; }
+.weather-label { font-size: 23px; margin: 0 0 10px; }
+.weather-status { font-size: 18px; color: var(--muted); margin: 0; }
+.launchers { margin-top: auto; }
+.section-heading { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; }
+.section-heading h1, .section-heading h2 { font-size: 27px; letter-spacing: -.4px; margin: 0; font-weight: 500; }
+.section-heading > span { font-size: 17px; color: var(--muted); }
+.app-row { display: flex; margin: -16px; padding: 16px; overflow-x: auto; scrollbar-width: none; }
+.app-row::-webkit-scrollbar { display: none; }
+.app-tile { flex: 0 0 calc((100% - 140px) / 6); min-width: 0; height: 136px; margin-right: 28px; border-radius: 12px; background: #1d3036; display: flex; justify-content: center; align-items: center; position: relative; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+.app-tile:last-child { margin-right: 0; }
+.app-name { font-size: 30px; font-weight: 600; letter-spacing: -.8px; }
+.app-icon { width: 66px; height: 66px; object-fit: contain; margin-right: 14px; }
+.app-tile.has-icon .app-name { font-size: 22px; max-width: 150px; overflow-wrap: break-word; }
+.app-tile.netflix { background: #1c1519; color: #f13848; }
+.netflix .app-name { text-transform: uppercase; font-size: 32px; letter-spacing: 1px; }
+.app-tile.youtube { background: #f3f2ef; color: #17191c; }
+.youtube .app-name { font-size: 29px; }
+.youtube .play-icon { width: 44px; height: 31px; background: #e62c31; border-radius: 9px; margin-right: 10px; position: relative; }
+.youtube .play-icon::after { content: ""; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid white; position: absolute; top: 8px; left: 18px; }
+.app-tile.prime-video { background: #18314a; color: #73c5ee; }
+.prime-video .app-name { font-size: 30px; font-weight: 500; }
+.app-tile.disney { background: #18233e; }
+.disney .app-name { font-family: Georgia, serif; font-size: 37px; font-style: italic; font-weight: 400; }
+.app-tile.plex { background: #202225; color: #f1bd55; }
+.plex .app-name { font-size: 45px; letter-spacing: -2px; }
+.app-tile.spotify { background: #142b24; color: #7ddd9e; }
+.spotify .app-name { font-size: 31px; }
+.apps-status { color: var(--muted); font-size: 20px; min-height: 100px; }
+.web-section { margin-top: 35px; }
+.website-row { display: flex; }
+.website-tile { display: flex; align-items: center; text-align: left; background: rgba(177, 206, 195, .065); border: 1px solid rgba(207, 228, 217, .1); border-radius: 10px; height: 100px; flex: 1; margin-right: 24px; padding: 0 25px; }
+.website-tile:last-child { margin-right: 0; }
+.website-symbol { width: 45px; text-align: center; margin-right: 22px; color: #d4e2d9; font-size: 23px; }
+.website-symbol.serif { font-family: Georgia, serif; font-size: 37px; }
+.website-symbol.bbc { font-size: 18px; letter-spacing: 1px; border: 1px solid #83958b; padding: 7px 2px; }
+.website-tile strong { font-size: 22px; font-weight: 500; display: block; margin-bottom: 7px; }
+.website-tile small { font-size: 16px; color: var(--muted); }
+.external-mark { margin-left: auto; padding-left: 20px; font-size: 25px; color: #90a29a; }
+.footer { display: flex; justify-content: space-between; align-items: center; padding-top: 51px; }
+.remote-guide { display: flex; align-items: center; font-size: 16px; color: var(--muted); }
+.remote-guide > span { margin-right: 33px; display: flex; align-items: center; }
+kbd { font: inherit; color: #e3ebe4; margin-right: 9px; }
+.remote-guide small { font-size: 13px; margin-left: 7px; color: #91a29b; }
+.red-key { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #d57b76; margin-right: 10px; }
+.version { color: #9aaca3; font-size: 16px; letter-spacing: 1px; }
+.version span { color: #4f655b; margin: 0 10px; }
+.overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 2; background: rgba(3, 10, 13, .72); display: flex; justify-content: flex-end; }
+.settings-panel { background: #142126; border-left: 1px solid #34443f; width: 680px; height: 100%; padding: 85px 65px; overflow-y: auto; }
+.settings-panel h2 { font-size: 43px; font-weight: 400; letter-spacing: -1px; line-height: 1.15; margin: 30px 0 20px; }
+.panel-description { color: var(--accent); font-size: 20px; margin-bottom: 45px; }
+.settings-detail { margin-bottom: 29px; }
+.settings-detail h3 { font-size: 21px; font-weight: 500; margin: 0 0 12px; }
+.settings-detail p { color: var(--muted); font-size: 20px; line-height: 1.5; margin: 0; }
+.panel-action { margin-top: 25px; }
+.action-button { width: 100%; border-radius: 7px; padding: 23px 24px; text-align: left; background: var(--accent); color: #14251b; font-size: 22px; }
+.action-button span { float: right; }
+.action-button.secondary { background: #233238; color: var(--text); }
+.panel-hint { margin-top: 35px; color: var(--muted); font-size: 17px; }
+.toast { position: fixed; bottom: 108px; left: 50%; transform: translateX(-50%); max-width: 80%; padding: 21px 35px; border: 1px solid #879d8e; border-radius: 10px; background: #21352d; color: #f4faf5; font-size: 23px; text-align: center; z-index: 3; }
+@media (max-height: 850px) { .home { padding: 30px 50px; } .at-a-glance { padding-top: 20px; } .clock time { font-size: 105px; } .app-tile { height: 105px; } .web-section { margin-top: 22px; } .footer { padding-top: 28px; } .settings-panel { padding: 35px 55px; } }
+@media (prefers-reduced-motion: reduce) { button { transition: none; } }

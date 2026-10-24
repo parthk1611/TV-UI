@@ -7,10 +7,10 @@
   <title>TV Home</title>
   <link rel="icon" href="images/icon.png">
   <link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
-  <div class="wallpaper" aria-hidden="true"></div>
+  <div id="wallpaper" class="wallpaper" aria-hidden="true"></div>
   <main id="home" class="home">
     <header class="topbar" data-nav-row>
       <div class="brand"><svg class="home-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="m5 15 11-10 11 10v12h-8v-8h-6v8H5Z"/></svg><h1>TV Home</h1></div>
@@ -25,57 +25,118 @@
 
     <section class="at-a-glance" aria-label="Clock and weather">
       <div class="clock-block">
-
         <div class="clock"><time id="clock">--:--</time><span id="period" class="period"></span></div>
         <p id="date" class="date"></p>
       </div>
-      <div class="weather">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="25" cy="24" r="10"/><path d="M25 4v5M25 39v5M5 24h5M40 24h5M11 10l4 4M35 34l4 4M11 38l4-4M35 14l4-4"/><path class="cloud" d="M25 49h25a9 9 0 0 0 0-18 13 13 0 0 0-25 3 7.5 7.5 0 0 0 0 15Z"/></svg>
-        <div><p class="weather-label">Weather</p><p id="weather-status" class="weather-status"></p></div>
+      <div id="weather" class="weather" data-state="loading" data-icon="cloud" role="status" aria-live="polite">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <g class="w-sun"><circle cx="25" cy="24" r="10"/><path d="M25 4v5M25 39v5M5 24h5M40 24h5M11 10l4 4M35 34l4 4M11 38l4-4M35 14l4-4"/></g>
+          <path class="cloud" d="M25 49h25a9 9 0 0 0 0-18 13 13 0 0 0-25 3 7.5 7.5 0 0 0 0 15Z"/>
+          <path class="w-rain" d="M30 54l-2 6M40 54l-2 6M50 54l-2 6"/>
+          <path class="w-snow" d="M30 56h4M32 54v4M42 56h4M44 54v4"/>
+          <path class="w-storm" d="M40 50l-5 8h6l-4 6"/>
+        </svg>
+        <div><p id="weather-main" class="weather-label">Checking the weather…</p><p id="weather-status" class="weather-status"></p></div>
       </div>
     </section>
 
     <div class="launchers">
       <section class="apps-section" aria-labelledby="apps-heading">
         <div class="section-heading"><h2 id="apps-heading">Your apps</h2><span id="apps-caption">Loading apps…</span></div>
+        <p id="arrange-banner" class="arrange-banner" role="status" hidden></p>
         <div id="apps" class="app-row" data-nav-row aria-label="Applications"></div>
         <p id="apps-status" class="apps-status" role="status" hidden></p>
       </section>
       <section class="web-section" aria-labelledby="web-heading">
-        <div class="section-heading"><h2 id="web-heading">On the web</h2><span>Shortcut preview</span></div>
-        <div id="websites" class="website-row" data-nav-row>
-          <button class="website-tile" data-focusable data-website="YouTube"><svg class="website-symbol youtube-symbol" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="7" width="26" height="18" rx="5"/><path d="m13 11 8 5-8 5Z"/></svg><span><strong>YouTube</strong><small>youtube.com</small></span><svg class="external-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
-          <button class="website-tile" data-focusable data-website="Wikipedia"><span class="website-symbol serif" aria-hidden="true">W</span><span><strong>Wikipedia</strong><small>wikipedia.org</small></span><svg class="external-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
-          <button class="website-tile" data-focusable data-website="BBC"><span class="website-symbol bbc" aria-hidden="true">BBC</span><span><strong>BBC News</strong><small>bbc.com</small></span><svg class="external-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
-        </div>
+        <div class="section-heading"><h2 id="web-heading">On the web</h2><span id="web-caption">Opens in the TV browser</span></div>
+        <div id="websites" class="website-row" data-nav-row></div>
       </section>
     </div>
 
     <footer class="footer">
       <div class="remote-guide"><span><kbd>↑ ↓ ← →</kbd> Move</span><span><kbd>OK</kbd> Open</span><span><kbd>Back</kbd> Return / exit</span><span><i class="red-key" aria-hidden="true"></i> Settings <small>(R on desktop)</small></span></div>
-      <span class="scene-credit">Lago di Braies, Italy</span>
+      <span id="wallpaper-caption" class="scene-credit">Lago di Braies, Italy</span>
     </footer>
   </main>
 
   <section id="settings" class="overlay" role="dialog" aria-modal="true" aria-labelledby="settings-title" hidden>
     <div class="settings-panel">
       <div class="panel-heading"><h2 id="settings-title">Settings</h2><span class="panel-key">Back to close</span></div>
-      <p class="panel-description">A little more you. A little less menu.</p>
-      <div class="settings-detail"><h3>Try your remote</h3><p>Move between apps, website tiles, and this panel using only the arrow keys and OK.</p></div>
-      <div class="settings-detail"><h3>Still in preview</h3><p>Wallpaper choices, local weather, tile editing, saved preferences, and the idle clock arrive in the next steps.</p></div>
-      <div class="panel-action" data-nav-row><button id="test-remote" class="action-button" data-focusable>Test OK button <svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v10H5m5-5-5 5 5 5"/></svg></button></div>
-      <div class="panel-action" data-nav-row><button id="close-settings" class="action-button secondary" data-focusable>Back to home <svg class="action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button></div>
-      <div class="wallpaper-credit"><h3>On your screen</h3><p>Lago di Braies, Italy</p><small>Photography by Luca Bravo · Unsplash</small></div>
+      <p class="panel-description">Changes are saved on this TV as you make them.</p>
+
+      <h3 class="settings-heading">Wallpaper</h3>
+      <div id="wallpaper-options" class="swatches" data-nav-row></div>
+
+      <h3 class="settings-heading">Clock and date</h3>
+      <div class="setting-row" data-nav-row><button id="setting-locale" class="setting-button wide" data-focusable>Region format <span class="value"></span></button></div>
+      <div class="setting-row" data-nav-row><button id="setting-hour12" class="setting-button wide" data-focusable>Clock <span class="value"></span></button></div>
+      <p id="locale-preview" class="setting-note"></p>
+
+      <h3 class="settings-heading">Weather</h3>
+      <div class="setting-row field" data-nav-row>
+        <button id="setting-city" class="setting-button wide" data-focusable data-edit="city">City <span class="value"></span></button>
+        <input id="input-city" class="text-field" type="text" maxlength="80" autocomplete="off" spellcheck="false" aria-label="City for weather" hidden>
+      </div>
+      <div class="setting-row" data-nav-row>
+        <button id="setting-units" class="setting-button" data-focusable>Units <span class="value"></span></button>
+        <button id="weather-refresh" class="setting-button" data-focusable>Refresh now <span aria-hidden="true">↻</span></button>
+      </div>
+
+      <h3 class="settings-heading">Idle screen</h3>
+      <div class="setting-row" data-nav-row>
+        <button id="setting-idle" class="setting-button" data-focusable>Show after <span class="value"></span></button>
+        <button id="idle-preview" class="setting-button" data-focusable>Preview <span aria-hidden="true">◐</span></button>
+      </div>
+
+      <h3 class="settings-heading">Apps</h3>
+      <div class="setting-row" data-nav-row><button id="arrange-apps" class="setting-button wide" data-focusable>Arrange apps on home <span aria-hidden="true">⇄</span></button></div>
+      <p class="setting-note">Show or hide each app:</p>
+      <div id="app-visibility"></div>
+
+      <h3 class="settings-heading">Websites</h3>
+      <div id="website-list"></div>
+      <p id="website-form-title" class="setting-note">Add a website</p>
+      <div class="setting-row field" data-nav-row>
+        <button id="site-name" class="setting-button wide" data-focusable data-edit="siteName">Name <span class="value"></span></button>
+        <input id="input-siteName" class="text-field" type="text" maxlength="40" autocomplete="off" spellcheck="false" aria-label="Website name" hidden>
+      </div>
+      <div class="setting-row field" data-nav-row>
+        <button id="site-url" class="setting-button wide" data-focusable data-edit="siteUrl">Address <span class="value"></span></button>
+        <input id="input-siteUrl" class="text-field" type="url" maxlength="300" autocomplete="off" spellcheck="false" aria-label="Website address" hidden>
+      </div>
+      <div class="setting-row" data-nav-row>
+        <button id="site-save" class="setting-button primary" data-focusable>Add website</button>
+        <button id="site-cancel" class="setting-button" data-focusable hidden>Cancel edit</button>
+      </div>
+      <p id="site-error" class="field-error" role="alert" hidden></p>
+
+      <div class="panel-action" data-nav-row><button id="close-settings" class="action-button secondary" data-focusable>Back to home <span aria-hidden="true">←</span></button></div>
+      <div class="wallpaper-credit"><h3>Wallpaper credit</h3><p>Lago di Braies photo by Luca Bravo · Unsplash</p><small>The other presets are original vector artwork.</small></div>
       <p class="panel-hint">Press Back to return to your previous tile.</p>
+    </div>
+  </section>
+
+  <section id="idle" class="idle" aria-label="Idle clock" hidden>
+    <div class="idle-photo"></div>
+    <div class="idle-photo"></div>
+    <div class="idle-shade"></div>
+    <div id="idle-clock-block" class="idle-clock-block">
+      <div class="idle-clock"><time id="idle-clock">--:--</time><span id="idle-period" class="period"></span></div>
+      <p id="idle-date" class="idle-date"></p>
+      <p class="idle-hint">Press any button to return</p>
     </div>
   </section>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
+  <script src="js/store.js?v=3"></script>
   <script src="js/nav.js"></script>
-  <script src="js/apps.js?v=2"></script>
-  <script src="js/weather.js?v=2"></script>
-  <script src="js/settings.js"></script>
-  <script src="js/keys.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/apps.js?v=3"></script>
+  <script src="js/websites.js?v=3"></script>
+  <script src="js/wallpaper.js?v=3"></script>
+  <script src="js/weather.js?v=3"></script>
+  <script src="js/settings.js?v=3"></script>
+  <script src="js/idle.js?v=3"></script>
+  <script src="js/keys.js?v=3"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>

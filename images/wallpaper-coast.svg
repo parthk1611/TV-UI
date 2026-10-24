@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#2d5468"/><stop offset=".6" stop-color="#8fb0b0"/><stop offset="1" stop-color="#c9d4c6"/></linearGradient>
+    <linearGradient id="sea" x2="0" y2="1"><stop stop-color="#4f7f86"/><stop offset="1" stop-color="#1b3a44"/></linearGradient>
+    <linearGradient id="cliff" x2="0" y2="1"><stop stop-color="#5b6d5c"/><stop offset="1" stop-color="#22312c"/></linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1920v1080H0z"/>
+  <ellipse cx="520" cy="250" rx="260" ry="34" fill="#e6efe9" opacity=".35"/>
+  <ellipse cx="1420" cy="180" rx="320" ry="40" fill="#e6efe9" opacity=".25"/>
+  <path fill="url(#sea)" d="M0 600h1920v480H0z"/>
+  <path fill="#d9e6e2" opacity=".18" d="M0 650h1920v4H0zM200 720h1100v3H200zM600 800h1200v3H600z"/>
+  <path fill="url(#cliff)" d="M1180 1080V640l120-70 90 20 110-90 160 30 120-60 140 40v570Z"/>
+  <path fill="#26362f" d="M0 1080V820l140-40 160 30 200-60 130 50v280Z"/>
+</svg>

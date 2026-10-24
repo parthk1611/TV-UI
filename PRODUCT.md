@@ -16,7 +16,7 @@ Plain HTML/CSS/JavaScript, ES2019 maximum, no build step. Target Tizen 6.0 / Chr
 
 ## Current scope
 
-Step 1 has a live clock/date, installed-app API guards, desktop sample apps, website preview feedback, and a settings shell. Weather, editable/persisted settings, website opening and idle mode remain later milestones. No TV deployment is verified.
+The user-provided full app baseline supplies weather with cache/offline fallback, editable app and website tiles, saved settings, wallpaper presets, locale/clock choices, browser app controls, and idle mode. The cinematic update preserves these capabilities and the settings key `tvhome.settings.v1`. Integrated version 0.3.0 installed and launched on the TV; individual feature behavior and saved-preference retention require device verification. JSON settings import/export is not implemented.
 
 ## Confirmed direction
 

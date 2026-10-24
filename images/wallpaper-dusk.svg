@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#1d2240"/><stop offset=".45" stop-color="#6b4a63"/><stop offset=".7" stop-color="#d0876b"/><stop offset="1" stop-color="#2b2338"/></linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop stop-color="#ffd9a3"/><stop offset=".35" stop-color="#f4a46f" stop-opacity=".85"/><stop offset="1" stop-color="#f4a46f" stop-opacity="0"/></radialGradient>
+    <linearGradient id="sea" x2="0" y2="1"><stop stop-color="#5b4058"/><stop offset="1" stop-color="#141526"/></linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1920v1080H0z"/>
+  <circle cx="1240" cy="640" r="330" fill="url(#sun)"/>
+  <circle cx="1240" cy="640" r="82" fill="#ffe2b5" opacity=".9"/>
+  <path fill="#3a2c45" d="m0 610 120-22 140 18 160-40 150 26 130-14 170 30 110 44H0Z"/>
+  <path fill="url(#sea)" d="M0 652h1920v428H0z"/>
+  <path fill="#f6b88a" opacity=".35" d="M1150 668h180v6h-180zM1110 700h260v5h-260zM1170 734h140v4h-140zM1080 770h320v4h-320zM1190 812h100v3h-100z"/>
+  <path fill="#1a1828" d="m1380 652 90-60 70 30 110-70 120 50 150-40v90Z"/>
+</svg>

@@ -1,26 +1,70 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-24T22:42:00Z",
+  "generatedAt": "2026-10-24T23:53:40.012065+00:00",
   "title": "Design System: TV Home",
   "extensions": {
-    "shadows": [{ "name": "toast", "value": "0 8px 28px rgba(0,0,0,.22)", "purpose": "Transient feedback only" }],
-    "motion": [{ "name": "keyboard", "value": "0ms", "purpose": "Immediate remote focus and activation" }],
-    "breakpoints": [{ "name": "desktop-preview", "value": "1500px" }, { "name": "compact-preview", "value": "1050px" }, { "name": "narrow-preview", "value": "650px" }]
+    "shadows": [
+      {
+        "name": "toast",
+        "value": "0 8px 28px rgba(0,0,0,.22)",
+        "purpose": "Transient feedback only"
+      }
+    ],
+    "motion": [
+      {
+        "name": "keyboard",
+        "value": "0ms",
+        "purpose": "Immediate remote focus and activation"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "desktop-preview",
+        "value": "1500px"
+      },
+      {
+        "name": "compact-preview",
+        "value": "1050px"
+      },
+      {
+        "name": "narrow-preview",
+        "value": "650px"
+      }
+    ]
   },
-  "components": [{
-    "name": "Action button",
-    "kind": "button",
-    "refersTo": "action-button",
-    "description": "Remote-operable settings action",
-    "html": "<button class=\"tv-action\">Test OK button</button>",
-    "css": ".tv-action { font:500 20px Inter,Arial,sans-serif; background:var(--text,#f5f5f3); color:var(--ground,#101112); border:0; border-radius:12px; padding:22px 24px; } .tv-action:focus { outline:4px solid var(--focus,#fafaf8); outline-offset:6px; }"
-  }],
+  "components": [
+    {
+      "name": "Action button",
+      "kind": "button",
+      "refersTo": "action-button",
+      "description": "Remote-operable settings action",
+      "html": "<button class=\"tv-action\">Add website</button>",
+      "css": ".tv-action { font:500 20px Inter,Arial,sans-serif; background:var(--text,#f5f5f3); color:var(--ground,#101112); border:0; border-radius:12px; padding:22px 24px; } .tv-action:focus { outline:4px solid var(--focus,#fafaf8); outline-offset:6px; }"
+    }
+  ],
   "narrative": {
     "northStar": "Cinematic scenic wallpaper, large clock, quiet app dock",
-    "overview": "A couch-distance TV launcher with a locally bundled photograph, immediate focus feedback, and honest preview states.",
-    "keyCharacteristics": ["Large tabular clock", "Neutral app artwork", "Visible white focus", "Local assets"],
-    "rules": [{ "name": "Immediate remote response", "body": "No transition delay on keyboard navigation", "section": "elevation" }],
-    "dos": ["Preserve arrow/OK/Back behavior", "Keep complete accessible app names"],
-    "donts": ["Do not invent weather or watch history", "Do not exceed Chromium 76 capabilities"]
+    "overview": "A couch-distance TV launcher with local scenic artwork, live weather, editable tiles, saved preferences and idle mode.",
+    "keyCharacteristics": [
+      "Large tabular clock",
+      "Neutral app artwork",
+      "Visible white focus",
+      "Local assets"
+    ],
+    "rules": [
+      {
+        "name": "Immediate remote response",
+        "body": "No transition delay on keyboard navigation",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Preserve arrow/OK/Back behavior",
+      "Keep complete accessible app names"
+    ],
+    "donts": [
+      "Do not invent weather or watch history",
+      "Do not exceed Chromium 76 capabilities"
+    ]
   }
 }

@@ -1,0 +1,15 @@
+{
+  "name": "tv-home-tests",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Dev-only test harness and build script for TV Home. Never packaged into the .wgt.",
+  "scripts": {
+    "test": "npm run test:compat && npm run test:e2e",
+    "test:compat": "node tests/compat-check.js",
+    "test:e2e": "playwright test --config tests/playwright.config.js",
+    "build": "bash scripts/build-wgt.sh"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}

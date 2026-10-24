@@ -9,3 +9,7 @@ output/
 *.pem
 *.key
 .DS_Store
+node_modules/
+test-results/
+playwright-report/
+dist/

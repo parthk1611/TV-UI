@@ -74,4 +74,4 @@ Focus is immediate: 4px white outlines, a 5–6px offset, and a small app-art sc
 
 ## Do's and Don'ts
 
-Preserve the remote keys, original app IDs, desktop mocks, and explicit preview status. Bundle images and fonts locally and retain their credits. Keep weather unavailable until implemented. Do not add motion libraries, blur effects, fake watch history, invented weather, or capabilities the TV cannot support. Verify on the actual television before claiming device compatibility.
+Preserve the remote keys, original app IDs, desktop mocks, saved preferences, editable tiles, and idle mode. Bundle images and fonts locally and retain their credits. Weather comes from Open-Meteo, with cached readings explicitly marked offline when necessary. Do not add motion libraries, blur effects, fake watch history, invented weather, or capabilities the TV cannot support. Verify on the actual television before claiming device compatibility.

@@ -1,0 +1,24 @@
+# Not packaged into the .wgt by scripts/build-wgt.sh (it uses an allow-list:
+# config.xml, index.html, css/, js/, images/). Listed here for Tizen Studio users who
+# package from the IDE: exclude these from the project build as well.
+tests/
+tracking/
+scripts/
+node_modules/
+dist/
+test-results/
+playwright-report/
+output/
+.playwright-cli/
+.playwright-mcp/
+package.json
+package-lock.json
+README.md
+INSTALL.md
+vendor/README.md
+.buildignore
+.gitignore
+
+PRODUCT.md
+DESIGN.md
+.impeccable/

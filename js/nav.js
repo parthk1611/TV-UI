@@ -49,6 +49,8 @@
       candidates.sort(function (a, b) { return Math.abs(center(a) - targetX) - Math.abs(center(b) - targetX); });
       focus(candidates[0], true);
     },
+    focusElement: function (element) { focus(element); },
+    scope: function () { return scope; },
     tab: function (backward) {
       var buttons = items(scope);
       var index = buttons.indexOf(document.activeElement);

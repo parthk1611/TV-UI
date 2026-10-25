@@ -1,0 +1,20 @@
+[
+  {
+    "file": "heisenberg.webp",
+    "tool": "Built-in image_gen",
+    "prompt": "Use case: illustration-story. Asset: single transparent character cutout for a personal TV launcher. Subject: a stylized fictional Heisenberg from Breaking Bad: bald man with a goatee, wire glasses, black pork-pie hat, dark olive jacket and green shirt, serious expression. High-end graphic novel character illustration with painterly fabric details, subtle ink edges, dramatic but restrained studio lighting. This must be an illustration of a fictional character, not a photograph or likeness of a real actor. Single figure centered from full head to mid-thigh, comfortably inside all canvas edges, generous transparent space around head and arms. True transparent alpha background, no floor, no backdrop, no text, no UI, no border, no glow, no watermark. Vertical 2:3 composition, clean detailed silhouette. Figure should occupy 86 percent of the frame height.",
+    "source": "Generated illustrated starter artwork; not official promotional photography."
+  },
+  {
+    "file": "patrick-jane.webp",
+    "tool": "Built-in image_gen",
+    "prompt": "Use case: illustration-story. Asset: single transparent character cutout for a personal TV launcher. Subject: a stylized fictional Patrick Jane from The Mentalist: curly blond-haired detective in a navy three-piece suit, open-collar pale shirt, one hand in his pocket, relaxed knowing smile. High-end graphic novel character illustration with painterly fabric details, subtle ink edges, dramatic but restrained studio lighting. This must be an illustration of a fictional character, not a photograph or likeness of a real actor. Single figure centered from full head to mid-thigh, comfortably inside all canvas edges, generous transparent space around head and arms. True transparent alpha background, no floor, no backdrop, no text, no UI, no border, no glow, no watermark. Vertical 2:3 composition, clean detailed silhouette. Figure should occupy 86 percent of the frame height.",
+    "source": "Generated illustrated starter artwork; not official promotional photography."
+  },
+  {
+    "file": "flash.webp",
+    "tool": "Built-in image_gen",
+    "prompt": "A standalone digital illustration of an original fictional masked runner, a generic red-and-gold adventure character created for a user interface. No existing character, no celebrity, no insignia, no logo. He wears a simple dark red athletic hood and red fitted jacket with gold piping, dark red trousers, and dark red gloves. His face is mostly covered by a simple fabric mask. Relaxed standing pose with arms at his sides. Painterly graphic novel rendering, tasteful fabric shading, clean contours, realistic proportions. Show a single figure from head to mid-thigh centered in a vertical 2:3 frame, with ample transparent space around the outline. True transparent alpha background, no scenery, no floor, no words, no watermark.",
+    "source": "Generated original red-and-gold masked runner used as replaceable starter artwork for The Flash shortcut; not official character artwork."
+  }
+]

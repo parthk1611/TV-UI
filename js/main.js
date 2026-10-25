@@ -82,13 +82,15 @@
     window.TVHome.websites.render();
     window.TVHome.weather.init();
     window.TVHome.settings.init();
-    window.TVHome.nav.setScope(document.getElementById('home'));
+    window.TVHome.characters.init();
+    window.TVHome.nav.setScope(document.getElementById('home'), document.getElementById('open-settings'));
     window.TVHome.idle.init();
     window.TVHome.keys.init();
     window.TVHome.store.onChange(function (settings, changed) {
       if (changed.indexOf('wallpaper') >= 0) { window.TVHome.wallpaper.apply(); }
       if (changed.indexOf('locale') >= 0 || changed.indexOf('hour12') >= 0) { window.TVHome.clock.update(); }
       if (changed.indexOf('websites') >= 0) { window.TVHome.websites.render(); }
+      if (changed.indexOf('characters') >= 0) { window.TVHome.characters.render(); }
       if (changed.indexOf('appOrder') >= 0 || changed.indexOf('hiddenApps') >= 0) {
         window.TVHome.apps.render();
         var shown = document.querySelectorAll('#apps [data-focusable]').length;

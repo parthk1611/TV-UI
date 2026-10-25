@@ -564,7 +564,10 @@ test.describe('robustness', () => {
     expect((await appNames(page))[0]).toBe('Prime Video');
     await expect(page.locator('#websites .website-tile')).toHaveText(/Saved website/);
     await page.reload();
-    expect(await page.evaluate(() => window.TVHome.store.get())).toEqual(saved);
+    const restored = await page.evaluate(() => window.TVHome.store.get());
+    const { characters, ...existingPreferences } = restored;
+    expect(existingPreferences).toEqual(saved);
+    expect(characters.map((item) => item.title)).toEqual(['Breaking Bad', 'The Mentalist', 'The Flash']);
     await expect(page.locator('#period')).toHaveText('');
   });
 

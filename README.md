@@ -8,6 +8,8 @@ limits of its web engine. It uses plain HTML, CSS and ES5 JavaScript, with no bu
 
 ## Features
 
+- **Character shortcuts (0.4.0)**: a character shelf with editable names, movie or series titles, artwork and website links. Hold OK on a character, choose **Edit shortcuts**, or press Blue (desktop E) to edit. Add up to eight, reorder or remove them, and import PNG/JPEG/WebP artwork. Existing settings are retained.
+- Starter shortcuts point to NetMirror's home page. Paste a specific title URL into the editor to open that selection. Generated starter artwork and its prompts are recorded in [`images/characters/credits.json`](images/characters/credits.json); the red runner is original placeholder artwork for The Flash shortcut.
 - **Home**: clock and date, live weather, your apps and website shortcuts, laid out for 1920×1080.
 - **Weather (Step 2)**: [Open-Meteo](https://open-meteo.com/) (no API key needed). The city is geocoded once,
   and the current temperature and conditions are cached for 30 minutes. If a refresh fails, the last
@@ -42,6 +44,7 @@ On desktop, Enter saves and Escape cancels. Not yet checked on the TV.
 | OK | Enter | Activate. In arrange mode, pick up or drop a tile |
 | Back | Backspace or Escape | Close settings, leave arrange mode, or exit on home (desktop shows a mock-exit toast) |
 | Red | R | Open settings |
+| Blue / hold OK on a character | E / hold Enter | Edit character shortcuts |
 | — | Tab / Shift+Tab | Cycle controls on the current screen |
 | Any key | Any key | Dismiss the idle screen |
 
@@ -106,6 +109,7 @@ tests/ scripts/ tracking/ INSTALL.md     ← development only, never packaged
 
 ## Known limitations
 
+- The 0.4.0 character interface has desktop tests; simulator deployment and physical-TV validation are separate checks. The Samsung simulator lacks a browser handler for website shortcuts and can report `NotFoundError`; desktop preview opens links in a new tab.
 - The prior app installed and launched; individual features and the integrated UI still need TV checks. See `tracking/TODO.md` for the checks to run there.
 - The Samsung Home button and HDMI/input switching are not supported. Open TV Home from the Samsung home bar.
 - The weather icon is simple (sun, cloud, rain, snow, storm) and ignores day/night.

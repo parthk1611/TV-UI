@@ -8,14 +8,16 @@
   <link rel="icon" href="images/icon.png">
   <link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/characters.css?v=4">
 </head>
-<body>
+<body class="character-home" data-ui>
   <div id="wallpaper" class="wallpaper" aria-hidden="true"></div>
   <main id="home" class="home">
     <header class="topbar" data-nav-row>
       <div class="brand"><svg class="home-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="m5 15 11-10 11 10v12h-8v-8h-6v8H5Z"/></svg><h1>TV Home</h1></div>
       <div class="topbar-actions">
         <span id="environment" class="environment">Starting…</span>
+        <button id="edit-characters" class="settings-button" data-focusable>Edit shortcuts</button>
         <button id="open-settings" class="settings-button" data-focusable aria-label="Open settings">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 3-.6 2.2-2 .9-2-.7-2 3.4L5 10.5v2.3l-1.6 1.7 2 3.4 2-.7 2 .9.6 2.2h4l.6-2.2 2-.9 2 .7 2-3.4-1.6-1.7v-2.3l1.6-1.7-2-3.4-2 .7-2-.9L14 3Z"/><circle cx="12" cy="11.7" r="3"/></svg>
           Settings
@@ -37,6 +39,20 @@
           <path class="w-storm" d="M40 50l-5 8h6l-4 6"/>
         </svg>
         <div><p id="weather-main" class="weather-label">Checking the weather…</p><p id="weather-status" class="weather-status"></p></div>
+      </div>
+    </section>
+
+    <section class="character-stage" aria-label="Your movie and series shortcuts">
+      <div class="story-details">
+        <h2 id="story-title">Breaking Bad</h2>
+        <p id="story-character" class="story-character">Heisenberg</p>
+        <p id="story-description" class="story-description">Your characters. Your next watch.</p>
+        <p id="story-destination" class="story-destination"></p>
+        <p class="story-hint"><span><kbd>OK</kbd> Open shortcut</span><span><kbd>Hold OK</kbd> Edit</span></p>
+      </div>
+      <div class="character-shelf">
+        <div class="shelf-heading"><h2>Your stories</h2><span id="character-count"></span></div>
+        <div id="characters" class="character-row" data-nav-row aria-label="Character shortcuts"></div>
       </div>
     </section>
 
@@ -116,6 +132,32 @@
     </div>
   </section>
 
+  <section id="character-editor" class="overlay character-editor" role="dialog" aria-modal="true" aria-labelledby="character-editor-title" hidden>
+    <div class="character-editor-preview" aria-hidden="true"><img id="character-preview" alt=""><span id="character-preview-title"></span></div>
+    <div class="settings-panel character-panel">
+      <div class="panel-heading"><h2 id="character-editor-title">Edit shortcut</h2><span class="panel-key">Back to close</span></div>
+      <p class="panel-description">Choose a character. Give it somewhere to go.</p>
+      <h3 class="settings-heading">Character artwork</h3>
+      <div id="character-presets" class="character-presets" data-nav-row></div>
+      <div class="setting-row" data-nav-row><button id="character-import" class="setting-button wide" data-focusable>Import your own image <span aria-hidden="true">+</span></button></div>
+      <input id="character-file" type="file" accept="image/png,image/jpeg,image/webp" aria-label="Import character artwork" hidden>
+      <p id="character-import-status" class="setting-note" role="status">PNG, JPEG or WebP. Transparent artwork works best.</p>
+      <div id="character-fields"></div>
+      <p class="setting-note">Paste a movie or series link to open that selection. A home-page link opens the website home.</p>
+      <p id="character-error" class="field-error" role="alert" hidden></p>
+      <div class="setting-row" data-nav-row>
+        <button id="character-save" class="setting-button primary" data-focusable>Save shortcut</button>
+        <button id="character-cancel" class="setting-button" data-focusable>Cancel</button>
+      </div>
+      <div id="character-order-actions" class="setting-row" data-nav-row>
+        <button id="character-left" class="setting-button" data-focusable>Move left</button>
+        <button id="character-right" class="setting-button" data-focusable>Move right</button>
+      </div>
+      <div id="character-remove-row" class="setting-row" data-nav-row><button id="character-remove" class="setting-button danger" data-focusable>Remove shortcut</button></div>
+      <p class="panel-hint">Artwork is saved on this device. Shortcuts never start a subscription or track your viewing.</p>
+    </div>
+  </section>
+
   <section id="idle" class="idle" aria-label="Idle clock" hidden>
     <div class="idle-photo"></div>
     <div class="idle-photo"></div>
@@ -132,6 +174,7 @@
   <script src="js/nav.js"></script>
   <script src="js/apps.js?v=3"></script>
   <script src="js/websites.js?v=3"></script>
+  <script src="js/characters.js?v=4"></script>
   <script src="js/wallpaper.js?v=3"></script>
   <script src="js/weather.js?v=3"></script>
   <script src="js/settings.js?v=3"></script>

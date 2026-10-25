@@ -20,6 +20,7 @@
   }
 
   function back() {
+    if (window.TVHome.characters.isOpen()) { window.TVHome.characters.close(); return; }
     if (window.TVHome.settings.isOpen()) { window.TVHome.settings.back(); return; }
     exitApp();
   }
@@ -31,6 +32,7 @@
     if (code === 13) { return 'ok'; }
     if (code === 10009 || (desktop && (code === 8 || code === 27))) { return 'back'; }
     if (code === 403 || (desktop && event.key && event.key.toLowerCase() === 'r')) { return 'red'; }
+    if (code === 406 || (desktop && event.key && event.key.toLowerCase() === 'e')) { return 'edit'; }
     if (code === 9) { return 'tab'; }
     if (code === 10252) { return 'playpause'; }
     return null;
@@ -64,10 +66,15 @@
       }
       document.addEventListener('keydown', function (event) {
         var desktop = typeof tizen === 'undefined';
-        if (isTextInput(document.activeElement)) { textKey(event, desktop); return; }
+        if (isTextInput(document.activeElement)) {
+          if (window.TVHome.characters.isOpen()) { window.TVHome.characters.textKey(event, desktop); }
+          else { textKey(event, desktop); }
+          return;
+        }
         var name = action(event, desktop);
         if (!name) { return; }
         if (name !== 'playpause') { event.preventDefault(); }
+        if (window.TVHome.characters.remoteKey(name, event)) { return; }
         if (window.TVHome.apps.isArranging()) {
           if (!event.repeat || name === 'left' || name === 'right') { window.TVHome.apps.arrangeKey(name); }
           return;
@@ -79,7 +86,9 @@
         } else if (name === 'back') {
           if (!event.repeat) { back(); }
         } else if (name === 'red') {
-          if (!event.repeat) { window.TVHome.settings.open(); }
+          if (!event.repeat && !window.TVHome.characters.isOpen()) { window.TVHome.settings.open(); }
+        } else if (name === 'edit') {
+          if (!event.repeat && !window.TVHome.settings.isOpen()) { window.TVHome.characters.open(); }
         } else if (name === 'tab') {
           window.TVHome.nav.tab(event.shiftKey);
         } else if (name === 'playpause') {

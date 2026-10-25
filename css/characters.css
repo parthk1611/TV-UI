@@ -1,0 +1,147 @@
+.character-home .wallpaper::after { background: linear-gradient(90deg, rgba(8,13,14,.95), rgba(8,13,14,.7) 48%, rgba(8,13,14,.5)), linear-gradient(0deg, #0c1112 15%, rgba(12,17,18,.2) 90%); } /* Photographic readability scrim. */
+.character-home .home { padding-top: 38px; }
+.character-home .topbar { min-height: 70px; }
+.character-home .brand h1 { font-size: 28px; }
+.character-home .topbar-actions .settings-button { margin-left: 20px; background: #242b2c; border-radius: 12px; }
+.character-home .environment { font-size: 15px; margin-right: 0; color: #bbc3c2; }
+.character-home .at-a-glance { position: absolute; top: 142px; left: var(--edge); right: var(--edge); padding: 0; align-items: flex-start; }
+.character-home .clock time { font-size: 49px; font-weight: 400; letter-spacing: -.03em; }
+.character-home .period { font-size: 18px; margin-left: 9px; }
+.character-home .date { margin-top: 6px; font-size: 17px; color: #c7d0ce; letter-spacing: 0; }
+.character-home .weather { max-width: 370px; padding: 0; }
+.character-home .weather svg { width: 34px; height: 34px; margin-right: 12px; }
+.character-home .weather-label { font-size: 19px; }
+.character-home .weather-status { font-size: 14px; max-width: 310px; }
+.character-stage { display: flex; position: relative; flex: 1 1 0; min-height: 0; margin-top: 100px; padding-bottom: 15px; align-items: stretch; }
+.story-details { flex: 0 0 32%; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 0 32px 10px 0; }
+.story-details h2 { font-size: 76px; line-height: 1.03; font-weight: 550; letter-spacing: -.035em; margin: 0 0 20px; overflow-wrap: break-word; max-width: 100%; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.story-character { font-size: 28px; font-weight: 450; color: #e8dfca; margin: 0 0 20px; overflow-wrap: break-word; }
+.story-description { color: #d4dcda; max-width: 26ch; font-size: 23px; line-height: 1.6; margin: 0; }
+.story-destination { font-size: 16px; color: #bdc8c5; line-height: 1.7; margin: 24px 0 0; max-width: 31ch; overflow-wrap: break-word; }
+.story-hint { display: flex; flex-direction: column; font-size: 16px; margin: 27px 0 0; color: #d8dedb; }
+.story-hint > span { margin-top: 11px; }
+.story-hint > span:first-child { margin-top: 0; }
+.story-hint kbd { display: inline-block; margin-right: 8px; }
+.character-shelf { min-width: 0; flex: 1; display: flex; flex-direction: column; }
+.shelf-heading { display: flex; align-items: baseline; justify-content: space-between; padding-left: 18px; margin: 7px 0 0; }
+.shelf-heading h2 { font-size: 21px; font-weight: 500; margin: 0; }
+.shelf-heading > span { font-size: 15px; color: #bac5c2; }
+.character-row { flex: 1; min-height: 0; display: flex; align-items: stretch; overflow-x: auto; overflow-y: hidden; padding: 12px 12px 16px; margin: 0 -12px; }
+.character-row::-webkit-scrollbar { display: none; }
+.character-tile { flex: 0 0 29%; position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-width: 0; margin-right: 18px; background: transparent; border-radius: 12px; }
+.character-art { width: 100%; height: calc(100% - 78px); min-height: 0; object-fit: contain; object-position: center bottom; opacity: .5; filter: saturate(.55); transform-origin: center bottom; }
+.character-tile.selected .character-art { opacity: 1; filter: none; transform: scale(1.07); }
+.character-tile:focus { outline: none; }
+.character-label { position: relative; display: block; width: 100%; text-align: center; padding: 14px 4px 10px; border-bottom: 3px solid transparent; }
+.character-label strong { display: block; color: #f3f2ec; font-weight: 500; font-size: 22px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.character-label > span { display: block; color: #bdc8c5; font-size: 15px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-top: 4px; }
+.character-tile.selected .character-label { border-bottom-color: #c8d5b7; }
+.character-tile:focus .character-label { background: #e9eee1; border-radius: 9px; border-bottom-color: transparent; outline: 3px solid #e9eee1; outline-offset: 4px; }
+.character-tile:focus .character-label strong, .character-tile:focus .character-label > span { color: #14201a; }
+.character-add { flex: 0 0 58px; align-self: flex-end; margin: 0 10px 18px 2px; min-height: 58px; border-radius: 50%; background: #2c3833; color: #f0f4ea; font-size: 31px; }
+.character-home .launchers { flex: 0 0 auto; margin-top: 0; padding-top: 14px; }
+.character-home .section-heading { margin-bottom: 10px; }
+.character-home .section-heading h2 { font-size: 20px; }
+.character-home .section-heading > span { font-size: 14px; }
+.character-home .app-row { padding: 12px; margin: -12px; }
+.character-home .app-tile { flex-basis: calc((100% - 140px) / 8); margin-right: 20px; }
+.character-home .app-art { height: 75px; border-radius: 12px; background: #26302d; }
+.character-home .app-tile:focus .app-art { background: #f5f5f3; }
+.character-home .app-name { font-size: 16px; margin-top: 9px; }
+.character-home .app-logo { width: 40px; height: 40px; }
+.character-home .logo-word, .character-home .prime-video .logo-word { font-size: 23px; }
+.character-home .disney .logo-word { font-size: 25px; }
+.character-home .plex .logo-word { font-size: 30px; }
+.character-home .app-icon { width: 46px; height: 46px; }
+.character-home .apps-status { font-size: 18px; min-height: 0; padding: 16px 0; margin: 0; }
+.character-home .web-section { margin-top: 17px; }
+.character-home .website-tile { height: 60px; border-radius: 9px; background: #1f2926; }
+.character-home .website-tile strong { font-size: 17px; }
+.character-home .website-tile small { font-size: 13px; }
+.character-home .website-symbol { font-size: 22px; }
+.character-home .footer { padding-top: 19px; }
+.character-home .remote-guide { font-size: 14px; }
+.character-home .remote-guide > span { margin-right: 22px; }
+.character-home .scene-credit { font-size: 12px; }
+.character-home .arrange-banner { font-size: 16px; padding: 7px 12px; margin-bottom: 12px; }
+.character-editor { z-index: 3; background: rgba(6,11,10,.93); }
+.character-panel { width: 700px; padding-top: 45px; background: #18221e; }
+.character-panel .panel-heading h2 { font-size: 36px; }
+.character-panel .panel-description { margin: 16px 0 26px; }
+.character-panel .settings-heading { margin-top: 20px; }
+.character-editor-preview { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 65px 50px; min-width: 0; }
+.character-editor-preview img { width: 75%; height: 77%; object-fit: contain; }
+.character-editor-preview span { font-size: 36px; margin-top: 22px; text-align: center; overflow-wrap: break-word; max-width: 100%; }
+.character-presets { display: flex; margin-bottom: 20px; }
+.character-preset { min-height: 74px; justify-content: center; text-align: center; font-size: 16px; padding: 10px 12px; }
+.character-preset[aria-pressed="true"] { background: #dce6d1; color: #16231b; }
+.character-panel .setting-note { font-size: 16px; line-height: 1.6; }
+#character-fields { margin-top: 28px; }
+.character-panel .setting-button { font-size: 18px; }
+.character-panel .panel-hint { line-height: 1.7; }
+@media (max-width: 1500px), (max-height: 850px) {
+  .character-home .home { padding-top: 22px; padding-bottom: 18px; }
+  .character-home .at-a-glance { top: 111px; }
+  .character-home .clock time { font-size: 40px; }
+  .character-home .date { font-size: 14px; }
+  .character-stage { margin-top: 83px; padding-bottom: 4px; }
+  .story-details h2 { font-size: 53px; margin-bottom: 14px; }
+  .story-character { font-size: 22px; margin-bottom: 13px; }
+  .story-description { font-size: 18px; }
+  .story-destination { font-size: 13px; margin-top: 15px; }
+  .story-hint { font-size: 13px; margin-top: 18px; }
+  .character-label strong { font-size: 18px; }
+  .character-label > span { font-size: 13px; }
+  .character-home .app-art { height: 60px; }
+  .character-home .app-name { font-size: 14px; }
+  .character-home .website-tile { height: 52px; }
+  .character-home .footer { padding-top: 14px; }
+  .character-panel { width: 620px; padding-top: 35px; }
+}
+@media (max-width: 1050px) {
+  .character-home .topbar-actions .settings-button { font-size: 15px; padding: 12px 14px; margin-left: 14px; }
+  .story-details { flex-basis: 30%; padding-right: 20px; }
+  .story-details h2 { font-size: 40px; }
+  .story-hint { display: none; }
+  .character-art { height: calc(100% - 68px); }
+  .character-tile { flex-basis: 29%; margin-right: 12px; }
+  .character-label strong { font-size: 15px; }
+  .character-label > span, .shelf-heading > span { font-size: 12px; }
+  .shelf-heading h2 { font-size: 17px; }
+  .character-add { flex-basis: 40px; min-height: 40px; font-size: 24px; }
+  .character-home .app-tile { flex-basis: calc((100% - 100px) / 6); }
+  .character-home .logo-word, .character-home .prime-video .logo-word { font-size: 18px; }
+  .character-editor-preview { display: none; }
+}
+@media (max-width: 650px) {
+  .character-home .home { padding-top: 24px; }
+  .character-home .brand h1 { font-size: 19px; }
+  .character-home #edit-characters { display: none; }
+  .character-home .at-a-glance { position: static; display: flex; padding-top: 32px; }
+  .character-home .clock time { font-size: 48px; }
+  .character-home .weather { margin-top: 0; max-width: 170px; }
+  .character-home .weather svg { display: none; }
+  .character-home .weather-label { font-size: 14px; }
+  .character-home .weather-status { font-size: 12px; }
+  .character-stage { flex-direction: column; margin-top: 44px; flex: none; }
+  .story-details { display: block; padding: 0; }
+  .story-details h2 { font-size: 49px; }
+  .story-character { font-size: 22px; margin-bottom: 12px; }
+  .story-description { font-size: 16px; }
+  .story-destination { font-size: 13px; max-width: 100%; margin-top: 12px; }
+  .character-shelf { margin-top: 30px; }
+  .character-row { height: 300px; flex: none; }
+  .character-tile { flex-basis: 46%; }
+  .character-home .launchers { margin-top: 28px; }
+  .character-home .app-tile { flex-basis: calc((100% - 40px) / 3); }
+  .character-home .website-row { display: flex; }
+  .character-home .website-tile { flex-basis: 100%; }
+  .character-home .remote-guide { font-size: 12px; }
+  .character-panel { width: 100%; padding: 32px 24px; }
+  .character-panel .panel-heading h2 { font-size: 30px; }
+  .character-preset { font-size: 14px; }
+  .character-panel .setting-button { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .character-tile.selected .character-art { transform: none; }
+}

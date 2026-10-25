@@ -46,7 +46,7 @@ test.describe('desktop preview (no tizen)', () => {
     expect(await focused(page)).toBe('app:Spotify');
   });
 
-  test('Up reaches settings button; Down reaches websites; Up returns to the same column', async ({ page }) => {
+  test('Up reaches character shortcuts; Down reaches websites; Up returns to the same column', async ({ page }) => {
     await openDesktop(page);
     for (const [rights, name] of [[0, 'Netflix'], [3, 'Disney+'], [5, 'Spotify']]) {
       await page.reload();
@@ -61,7 +61,7 @@ test.describe('desktop preview (no tizen)', () => {
       expect(await focused(page)).toBe('app:' + name);
     }
     await press(page, 'ArrowUp');
-    expect(await focused(page)).toBe('#open-settings');
+    await expect(page.locator('#characters [data-character-id]:focus')).toHaveCount(1);
   });
 
   test('every website tile is reachable and Enter shows preview feedback', async ({ page }) => {
@@ -100,9 +100,9 @@ test.describe('desktop preview (no tizen)', () => {
     await expect(page.locator('#toast')).toBeHidden(); // closing settings must not trigger exit
   });
 
-  test('settings via Up+Enter; panel buttons work; close button restores focus', async ({ page }) => {
+  test('settings via header button; panel buttons work; close button restores focus', async ({ page }) => {
     await openDesktop(page);
-    await press(page, 'ArrowUp');
+    await page.locator('#open-settings').focus();
     expect(await focused(page)).toBe('#open-settings');
     await press(page, 'Enter');
     await expect(page.locator('#settings')).toBeVisible();
@@ -281,6 +281,8 @@ test.describe('Tizen mode (stubbed window.tizen)', () => {
       await expect(page.locator('#settings')).toBeVisible();
       // Websites remain reachable too.
       await pressRemote(page, 10009, 'XF86Back');
+      await press(page, 'ArrowDown');
+      await expect(page.locator('#characters [data-focusable]:focus')).toHaveCount(1);
       await press(page, 'ArrowDown');
       expect(await focused(page)).toMatch(/^web:/);
     });

@@ -21,6 +21,11 @@
       idleMinutes: 5,
       appOrder: [],
       hiddenApps: [],
+      characters: [
+        { id: 'heisenberg', name: 'Heisenberg', title: 'Breaking Bad', art: 'heisenberg', image: '', url: 'https://net77.cc/home' },
+        { id: 'patrick-jane', name: 'Patrick Jane', title: 'The Mentalist', art: 'patrick-jane', image: '', url: 'https://net77.cc/home' },
+        { id: 'flash', name: 'The Flash', title: 'The Flash', art: 'flash', image: '', url: 'https://net77.cc/home' }
+      ],
       websites: [
         { id: 'site-youtube', name: 'YouTube', url: 'https://www.youtube.com/' },
         { id: 'site-wikipedia', name: 'Wikipedia', url: 'https://www.wikipedia.org/' },
@@ -75,6 +80,20 @@
     if (IDLE_OPTIONS.indexOf(raw.idleMinutes) >= 0) { base.idleMinutes = raw.idleMinutes; }
     if (isStringArray(raw.appOrder)) { base.appOrder = raw.appOrder.slice(0, 500); }
     if (isStringArray(raw.hiddenApps)) { base.hiddenApps = raw.hiddenApps.slice(0, 500); }
+    if (Array.isArray(raw.characters)) {
+      var characterIds = [];
+      base.characters = raw.characters.filter(function (item) {
+        if (!item || typeof item.id !== 'string' || !/^[a-z0-9-]{1,80}$/.test(item.id) || characterIds.indexOf(item.id) >= 0 ||
+          typeof item.name !== 'string' || !item.name.trim() || typeof item.title !== 'string' || !item.title.trim() || !validUrl(item.url)) { return false; }
+        characterIds.push(item.id);
+        return true;
+      }).slice(0, 8).map(function (item) {
+        return { id: item.id, name: item.name.trim().slice(0, 60), title: item.title.trim().slice(0, 80),
+          art: ['heisenberg', 'patrick-jane', 'flash'].indexOf(item.art) >= 0 ? item.art : 'heisenberg',
+          image: typeof item.image === 'string' && item.image.length <= 550000 && /^data:image\/(png|jpeg|webp);base64,[a-z0-9+/=]+$/i.test(item.image) ? item.image : '',
+          url: validUrl(item.url) };
+      });
+    }
     if (Array.isArray(raw.websites)) {
       base.websites = raw.websites.filter(function (site) {
         return site && typeof site.id === 'string' && typeof site.name === 'string' && site.name.trim() && validUrl(site.url);
@@ -115,9 +134,10 @@
         if (JSON.stringify(next[key]) !== JSON.stringify(patch[key])) { changed.push(key); }
         next[key] = patch[key];
       });
-      current = sanitize(next);
-      try { window.localStorage.setItem(KEY, JSON.stringify(current)); }
-      catch (error) { window.TVHome.toast('Could not save settings: ' + error.name); }
+      var sanitized = sanitize(next);
+      try { window.localStorage.setItem(KEY, JSON.stringify(sanitized)); }
+      catch (error) { window.TVHome.toast('Could not save settings: ' + error.name); return this.get(); }
+      current = sanitized;
       if (changed.length) {
         listeners.forEach(function (listener) { listener(copy(current), changed); });
       }
